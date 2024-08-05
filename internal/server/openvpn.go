@@ -145,10 +145,9 @@ func (h *openvpnHandler) getPortForwarded(w http.ResponseWriter) {
 }
 
 func (h *openvpnHandler) setPortForwarded(w http.ResponseWriter, r *http.Request) {
-	decoder := json.NewDecoder(r.Body)
-	encoder := json.NewEncoder(w)
 	var data portsWrapper
 
+	decoder := json.NewDecoder(r.Body)
 	if err := decoder.Decode(&data); err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
@@ -164,6 +163,7 @@ func (h *openvpnHandler) setPortForwarded(w http.ResponseWriter, r *http.Request
 		return
 	}
 
+	encoder := json.NewEncoder(w)
 	err := encoder.Encode(h.pf.GetPortsForwarded())
 	if err != nil {
 		h.warner.Warn(err.Error())
