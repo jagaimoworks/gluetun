@@ -10,7 +10,7 @@ import (
 
 func New(ctx context.Context, address string, logEnabled bool, logger Logger,
 	buildInfo models.BuildInformation, openvpnLooper VPNLooper,
-	pf PortForwarded, unboundLooper DNSLoop,
+	pf PortForwarding, unboundLooper DNSLoop,
 	updaterLooper UpdaterLooper, publicIPLooper PublicIPLoop, storage Storage,
 	ipv6Supported bool) (
 	server *httpserver.Server, err error) {

@@ -11,11 +11,11 @@ import (
 )
 
 func newOpenvpnHandler(ctx context.Context, looper VPNLooper,
-	portForwarded PortForwarded, w warner) http.Handler {
+	portForwarding PortForwarding, w warner) http.Handler {
 	return &openvpnHandler{
 		ctx:    ctx,
 		looper: looper,
-		pf:     portForwarded,
+		pf:     portForwarding,
 		warner: w,
 	}
 }
@@ -23,7 +23,7 @@ func newOpenvpnHandler(ctx context.Context, looper VPNLooper,
 type openvpnHandler struct {
 	ctx    context.Context //nolint:containedctx
 	looper VPNLooper
-	pf     PortForwarded
+	pf     PortForwarding
 	warner warner
 }
 

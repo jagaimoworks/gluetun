@@ -11,7 +11,7 @@ import (
 func newHandler(ctx context.Context, logger infoWarner, logging bool,
 	buildInfo models.BuildInformation,
 	vpnLooper VPNLooper,
-	pf PortForwarded,
+	pf PortForwarding,
 	unboundLooper DNSLoop,
 	updaterLooper UpdaterLooper,
 	publicIPLooper PublicIPLoop,
